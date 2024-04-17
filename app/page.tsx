@@ -1,26 +1,28 @@
-import { useState, useEffect } from "react";
-import ClipLoader from "react-spinners/ClipLoader";
-import Image from "next/image";
+'use client'
+import React, { useState } from 'react';
 
-const fetchFotos = async () => {
-  try {
-    const response = await fetch("https://jsonplaceholder.typicode.com/photos");
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.log(error);
-  }
-};
+function TextInput() {
+  // Declare a state variable called "text" and a function to update it called "setText"
+  const [text, setText] = useState('');
 
-function App() {
-  const [fotos, setFotos] = useState([]);
+  // Event handler function to update the "text" state variable when input changes
+  const handleChange = (event) => {
+    setText(event.target.value);
+  };
 
- 
   return (
-    <>
-      <h1>login</h1>
-    </>
+    <div>
+      {/* Render an input field */}
+      <input
+        type="text"
+        value={text}
+        onChange={handleChange}
+        placeholder="Type something..."
+      />
+      {/* Render a paragraph to display the current value of "text" */}
+      <p>You typed: {text}</p>
+    </div>
   );
 }
 
-export default App;
+export default TextInput;
