@@ -1,4 +1,3 @@
-'use client'
 import { useState, useEffect } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
 import Image from "next/image";
